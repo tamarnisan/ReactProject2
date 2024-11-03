@@ -4,7 +4,7 @@ function LogIn(){
     
     const [currentName, setCurrentName] =useState();
     const [currentPassword, setCurrentPassword] =useState();
-    localStorage.setItem("arrayUsers",JSON.stringify([]))
+   
    
     function submit(obj){
        
@@ -17,7 +17,7 @@ function LogIn(){
     }
    else{ for(let i=0;i<array.length;i++){
         if(obj.name===array[i].name){
-            alert("hi"+ obj.name)
+            alert("hi "+ obj.name)
             return;
         }
     }
