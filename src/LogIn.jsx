@@ -1,41 +1,47 @@
 import React, { useState } from 'react'
 import Board from './Board'
-function LogIn(){
-    
-    const [currentName, setCurrentName] =useState();
-    const [currentPassword, setCurrentPassword] =useState();
-   
-   
-    function submit(obj){
-       
-    let array1=localStorage.getItem("arrayUsers");
-    const array= JSON.parse(array1)
-    if(array.length===0){
-        localStorage.setItem("arrayUsers",JSON.stringify([obj]))
-        alert("welcome")
-    
-    }
-   else{ for(let i=0;i<array.length;i++){
-        if(obj.name===array[i].name){
-            alert("hi "+ obj.name)
-            return;
+function LogIn() {
+
+    const [currentName, setCurrentName] = useState();
+    const [currentPassword, setCurrentPassword] = useState();
+    const [userarr, setUserarr] = useState(JSON.parse(localStorage.getItem("arrayUsers")));
+    console.log('userarr: ', userarr);
+
+    function submit(obj) {
+        const array1 = localStorage.getItem("arrayUsers");
+        const arr = JSON.parse(array1)
+        if (!Array.isArray(arr)) {
+            localStorage.setItem("arrayUsers", JSON.stringify([obj]))
+            setUserarr([obj])
+            alert("welcome")
+            return
+
+        }
+        else {
+            for (let i = 0; i < arr.length; i++) {
+                if (obj.name === arr[i].name) {
+                    setUserarr(arr)
+                    alert("hi " + obj.name)
+                    return;
+                }
+            }
+            arr.push(obj);
+            localStorage.setItem("arrayUsers", JSON.stringify(arr))
+            setUserarr(arr)
+            alert("welcome")
         }
     }
-    array.push(obj);
-    localStorage.setItem("arrayUsers",JSON.stringify(array))
-    alert("welcome")
-   }
-}
-    return(
-    <div>
-       
-    <input type="text" placeholder="שם משתמש:" onChange={(e)=> setCurrentName(e.target.value)}></input>
-    <input type='password' placeholder="סיסמא" onChange={(e)=> setCurrentPassword(e.target.value)}></input>
-    <input onClick={()=>submit({name:currentName,password:currentPassword})} type="submit" value="Submit"></input>
-    {localStorage.setItem("currentUser", JSON.stringify(currentName))}
-   
-    <Board/>
-    </div>
+    return (
+        <div>
+
+            <input type="text" placeholder="שם משתמש:" onChange={(e) => setCurrentName(e.target.value)}></input>
+            <input type='password' placeholder="סיסמא" onChange={(e) => setCurrentPassword(e.target.value)}></input>
+            <input onClick={() => submit({ name: currentName, password: currentPassword })} type="submit" value="Submit"></input>
+            {localStorage.setItem("currentUser", JSON.stringify(currentName))}
+            {console.log(userarr)}
+            {Array.isArray(userarr) && userarr.map((user) => (<Board obj={user} key={user.name} />))}
+
+        </div>
     )
 }
 export default LogIn
