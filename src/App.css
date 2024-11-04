@@ -68,7 +68,7 @@ input{
   margin: 3px;
 }
 
-/* #inN{
+#inN{
   background-color:rgb(202, 172, 201);
   margin-top: 20px;
   margin-bottom: 20px;
@@ -76,7 +76,7 @@ input{
   border-radius: 15px;
   justify-content: center;
 
-} */
+}
 
 body{
   text-align: center;

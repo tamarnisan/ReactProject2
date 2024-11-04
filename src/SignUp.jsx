@@ -36,7 +36,7 @@ return(
   <>
    { bool===false? <><div><h1>Sign Up!</h1></div><input type="text" placeholder="שם משתמש:" onChange={(e) => setCurrentNameS(e.target.value)}></input>
     <input type='password' placeholder="סיסמא" onChange={(e) => setCurrentPasswordS(e.target.value)}></input>
-    <input onClick={() => submit({ name: currentNameS, password: currentPasswordS })} type="submit" value="Submit"></input>
+    <input onClick={() => submit({ name: currentNameS, password: currentPasswordS })} type="submit" value="Submit"></input><br></br>
     </> :<><h1>Add Player</h1><LogIn /></>}
     </>
     )
