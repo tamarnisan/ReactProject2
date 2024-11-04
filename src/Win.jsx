@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
 function Win(props){
-    function quit(obj){
+    console.log(props );
+    function quit(){
         const arr=JSON.parse(localStorage.getItem("arrayUsers"));
         for(let i=0;i<arr.length;i++){
-            if(arr[i].name==obj.name){
-                delete arr[i];
+            if(arr[i].name==props.obj.name){
+                arr.splice(i,1);
             }
         }
         localStorage.setItem("arrayUsers", JSON.stringify(arr))
@@ -22,7 +23,7 @@ function Win(props){
     return(
         <>
         {alert(props.obj.name+" is the winner!!")}
-        <button onClick={()=>quit(props.obj)}>quit</button>
+        <button onClick={()=>quit()}>quit</button>
         <button onClick={()=>replay()}>replay</button>
         </>
     )
