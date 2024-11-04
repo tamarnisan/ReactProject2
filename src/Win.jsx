@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 function Win(props) {
     console.log(props);
     function quit() {
-        const arr = JSON.parse(localStorage.getItem("arrayUsers"));
+        const arr = props.userarr
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].name == props.obj.name) {
                 arr.splice(i, 1);
