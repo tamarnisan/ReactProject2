@@ -24,11 +24,16 @@ function Win(props) {
         props.setWin(false);
     }
 
-    return (
+     const myInterval=setInterval(() => {
+        alert(props.obj.name+" is the winner!!")
+        clearInterval(myInterval);
+     }, 800);
+
+    return(
         <>
-            {alert(props.obj.name + " is the winner!!")}
-            <button onClick={() => quit()}>quit</button>
-            <button onClick={() => replay()}>replay</button>
+        <button onClick={()=>quit()}>quit</button>
+        <button onClick={()=>replay()}>replay</button>
+    
         </>
     )
 }

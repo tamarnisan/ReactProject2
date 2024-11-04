@@ -7,7 +7,7 @@ function Buttons(props){
         for(let i=0;i<arr.length;i++){
             if(arr[i].name==obj.name){
                 if(Array.isArray(arr[i].score)) 
-                    arr[i].score.push( props.count)
+                    arr[i].score.push( props.count+1)
                 else arr[i].score=[props.count];
                 props.setScore(arr[i].score)
             }

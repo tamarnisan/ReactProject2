@@ -13,7 +13,7 @@ function LogIn() {
         const array1 = localStorage.getItem("arrayUsers");
         const arr = JSON.parse(array1)
         if (!Array.isArray(arr)) {
-            obj.score=2;
+            obj.score=[];
             obj.id=0;
             localStorage.setItem("currentUser", JSON.stringify(obj))
             localStorage.setItem("arrayUsers", JSON.stringify([obj]))
@@ -34,14 +34,13 @@ function LogIn() {
             }
             arr.push({...obj, id: arr.length});
             console.log('arr: ', arr);
-            obj.score=7;
+            obj.score=[];
             localStorage.setItem("arrayUsers", JSON.stringify(arr))
             localStorage.setItem("currentUser", JSON.stringify(obj))
             setUserarr(arr)
             alert("welcome")
         }
-      
-    }
+          }
   
     return (
         <div>
