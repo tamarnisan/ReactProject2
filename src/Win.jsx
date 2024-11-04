@@ -1,26 +1,25 @@
+
 import React, { useState } from 'react';
 
-function Win(props){
-    console.log(props );
-    function quit(){
-        const arr=JSON.parse(localStorage.getItem("arrayUsers"));
-        for(let i=0;i<arr.length;i++){
-            if(arr[i].name==props.obj.name){
-                arr.splice(i,1);
+function Win(props) {
+    console.log(props);
+    function quit() {
+        const arr = JSON.parse(localStorage.getItem("arrayUsers"));
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].name == props.obj.name) {
+                arr.splice(i, 1);
             }
         }
-        let arr2=props.userarr;
         props.setUserarr(arr);
+        props.setLength((prev) => { return prev - 1 })        
         props.setWin(false);
-        for(let i=0;i<props.userarr.length;i++){
-            arr2[i].id=i;
-        }
-        props.setIndex(props.index-1);
-        props.setUserarr( arr2)
+        props.setIndex(prev=>prev-1)
+    
+      
     }
 
-    function replay(){
-        props.setNumber(Math.floor(Math.random()*99));
+    function replay() {
+        props.setNumber(Math.floor(Math.random() * 99));
         props.setCount(0);
         props.setWin(false);
     }
