@@ -4,8 +4,7 @@ function LogIn() {
 
     const [currentName, setCurrentName] = useState();
     const [currentPassword, setCurrentPassword] = useState();
-    const [userarr, setUserarr] = useState(JSON.parse(localStorage.getItem("arrayUsers")));
-    console.log('userarr: ', userarr);
+    const [userarr, setUserarr] = useState(JSON.parse(localStorage.getItem("arrayUsers")));    
 
     function submit(obj) {
         const array1 = localStorage.getItem("arrayUsers");
@@ -38,8 +37,7 @@ function LogIn() {
             <input type='password' placeholder="סיסמא" onChange={(e) => setCurrentPassword(e.target.value)}></input>
             <input onClick={() => submit({ name: currentName, password: currentPassword })} type="submit" value="Submit"></input>
             {localStorage.setItem("currentUser", JSON.stringify(currentName))}
-            {console.log(userarr)}
-            {Array.isArray(userarr) && userarr.map((user) => (<Board obj={user} key={user.name} />))}
+            {Array.isArray(userarr) && userarr.map((user) => (<Board obj={user} key={user.name} setUserarr={setUserarr}/>))}
 
         </div>
     )
