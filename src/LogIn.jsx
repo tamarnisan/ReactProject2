@@ -1,45 +1,30 @@
 import React, { useState } from 'react'
 import Board from './Board'
-function LogIn() {
+function LogIn(props) {
 
     const [currentName, setCurrentName] = useState();
     const [currentPassword, setCurrentPassword] = useState();
     const[index, setIndex]=useState(0);
-    const [userarr, setUserarr] = useState(JSON.parse(localStorage.getItem("arrayUsers")));
+    // const [userarr, setUserarr] = useState(JSON.parse(localStorage.getItem("arrayUsers")));
     const [length, setLength] =useState(0)
-    console.log('userarr: ', userarr);
+    const [arrayPlayers, setArrayPLayers]= useState([])
+    console.log('arrayPlayers: ', arrayPlayers);
 
     function submit(obj) {
-        const array1 = localStorage.getItem("arrayUsers");
-        const arr = JSON.parse(array1)
-        if (!Array.isArray(arr)) {
-            obj.score=[];
-            obj.id=0;
-            localStorage.setItem("currentUser", JSON.stringify(obj))
-            localStorage.setItem("arrayUsers", JSON.stringify([obj]))
-          
-            setUserarr([obj])
-            alert("welcome")
-            return
-
-        }
-        else {
+        let arr= JSON.parse(window.localStorage.getItem("arrayUsers"));
+        const array2=arrayPlayers;
+        if (Array.isArray(arr)) {
             for (let i = 0; i < arr.length; i++) {
                 if (obj.name === arr[i].name) {
-                    setUserarr(arr)
-                    localStorage.setItem("currentUser", JSON.stringify(arr[i]))
                     alert("hi " + obj.name)
+                   setArrayPLayers((prev)=>[...prev,obj])
+                 
                     return;
                 }
-            }
-            arr.push({...obj, id: arr.length});
-            console.log('arr: ', arr);
-            obj.score=[];
-            localStorage.setItem("arrayUsers", JSON.stringify(arr))
-            localStorage.setItem("currentUser", JSON.stringify(obj))
-            setUserarr(arr)
-            alert("welcome")
-        }
+            }}
+            alert("please sign up!")
+
+        
           }
   
     return (
@@ -48,10 +33,9 @@ function LogIn() {
             <input type="text" placeholder="שם משתמש:" onChange={(e) => setCurrentName(e.target.value)}></input>
             <input type='password' placeholder="סיסמא" onChange={(e) => setCurrentPassword(e.target.value)}></input>
             <input onClick={() => submit({ name: currentName, password: currentPassword })} type="submit" value="Submit"></input>
-            {localStorage.setItem("currentUser", JSON.stringify(currentName))}
-            {Array.isArray(userarr) && userarr.map((user, i) => (<Board obj={user} i={i}setLength={setLength} key={user.name} setUserarr={setUserarr} userarr={userarr} length={length}  index={index} setIndex={setIndex} />))}
+            {/* {localStorage.setItem("currentUser", JSON.stringify(currentName))} */}
+            {Array.isArray(arrayPlayers) && arrayPlayers.map((user, i) => (<Board obj={user} i={i} setLength={setLength} key={user.name} setUserarr={setArrayPLayers} userarr={arrayPlayers} length={length}  index={index} setIndex={setIndex} />))}
             
-            {console.log(userarr)}
         </div>
     )
 }

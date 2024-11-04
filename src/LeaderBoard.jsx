@@ -19,7 +19,7 @@ const[mini3,setmin3]=useState(JSON.parse(localStorage.getItem("mini3")))
 // let min3=9999;
 let index1=0
 for(let i=0; i<usersArray.length;i++){
-    for(let j=0;j<usersArray[i].score;j++)
+    for(let j=0;j<usersArray[i].score.length;j++)
     if(usersArray[i].score[j]<mini1){
         setmin1(usersArray[i].score[j])
         localStorage.setItem("mini1",JSON.stringify(usersArray[i].score[j]))
@@ -32,7 +32,7 @@ for(let i=0; i<usersArray.length;i++){
 
 let index2=0
 for(let i=0; i<usersArray.length;i++){
-    for(let j=0;j<usersArray[i].score;j++){
+    for(let j=0;j<usersArray[i].score.length;j++){
         if(usersArray[i].score[j]<mini2&&usersArray[i].score[j]!==mini1){
             setmin2(usersArray[i].score[j])
             localStorage.setItem("mini2",JSON.stringify(usersArray[i].score[j]))
@@ -44,7 +44,7 @@ for(let i=0; i<usersArray.length;i++){
 }
 let index3=0
 for(let i=0; i<usersArray.length;i++){
-    for(let j=0;j<usersArray[i].score;j++){
+    for(let j=0;j<usersArray[i].score.length;j++){
         if(usersArray[i].score[j]<mini2&&usersArray[i].score[j]!==mini1&&usersArray[i].score[j]!==mini2){
             setmin3(usersArray[i].score[j])
             localStorage.setItem("mini3",JSON.stringify(usersArray[i].score[j]))
