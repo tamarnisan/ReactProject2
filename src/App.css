@@ -40,3 +40,45 @@
 .read-the-docs {
   color: #888;
 }
+
+.rec{
+  border: 2px dashed grey;
+  margin: 5px;
+  width: 21vw;
+}
+
+#container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color:rgb(202, 172, 201);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+ border-radius: 15px;
+ justify-content: center;
+  
+}
+
+button{
+  border: 1px solid black;
+  margin: 3px;
+}
+input{
+  margin: 3px;
+}
+
+/* #inN{
+  background-color:rgb(202, 172, 201);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 40px;
+  border-radius: 15px;
+  justify-content: center;
+
+} */
+
+body{
+  text-align: center;
+  font-size: 18px;
+}

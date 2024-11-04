@@ -15,7 +15,7 @@ const num= Math.floor(Math.random() * 99)
   console.log(props.i)
   return (
     <>
-      <div>
+      <div className='rec'>
         <h1>name:  {props.obj.name}</h1>
         <h2>randomNum: {number}</h2>
         <h2>counter: {count}</h2>

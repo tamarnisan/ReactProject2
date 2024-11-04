@@ -6,7 +6,7 @@ function NavBar() {
     const [showLeaderBoard, setShowLeaderBoard] = useState(false);
 
     return (
-        <div>
+        <div id="inN">
             {showLogIn && <LogIn />}
             {showLeaderBoard&&<LeaderBoard />}
             <button onClick={() =>{ setShowLogIn(true); setShowLeaderBoard(false)}}>LogIn</button>

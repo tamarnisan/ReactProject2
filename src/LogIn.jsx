@@ -49,8 +49,7 @@ function LogIn() {
             <input type='password' placeholder="סיסמא" onChange={(e) => setCurrentPassword(e.target.value)}></input>
             <input onClick={() => submit({ name: currentName, password: currentPassword })} type="submit" value="Submit"></input>
             {localStorage.setItem("currentUser", JSON.stringify(currentName))}
-            {Array.isArray(userarr) && userarr.map((user, i) => (<Board obj={user} i={i}setLength={setLength} key={user.name} setUserarr={setUserarr} userarr={userarr} length={length}  index={index} setIndex={setIndex} />))}
-            
+            <div id='container'>{Array.isArray(userarr) && userarr.map((user, i) => (<Board obj={user} i={i}setLength={setLength} key={user.name} setUserarr={setUserarr} userarr={userarr} length={length}  index={index} setIndex={setIndex} />))}  </div>
             {console.log(userarr)}
         </div>
     )
