@@ -9,9 +9,8 @@ function NavBar() {
         <div>
             {showLogIn && <LogIn />}
             {showLeaderBoard&&<LeaderBoard />}
-            <button onClick={() =>{ setShowLogIn(true); setShowLeaderBoard(false)}}>
-                LogIn
-            </button>
+            <button onClick={() =>{ setShowLogIn(true); setShowLeaderBoard(false)}}>LogIn</button>
+            
             <button onClick={() =>{ setShowLeaderBoard(true); setShowLogIn(false)}}>LeaderBoard</button>
         </div>
     )

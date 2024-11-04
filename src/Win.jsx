@@ -9,9 +9,14 @@ function Win(props){
                 arr.splice(i,1);
             }
         }
-        localStorage.setItem("arrayUsers", JSON.stringify(arr))
+        let arr2=props.userarr;
         props.setUserarr(arr);
         props.setWin(false);
+        for(let i=0;i<props.userarr.length;i++){
+            arr2[i].id=i;
+        }
+        props.setIndex(props.index-1);
+        props.setUserarr( arr2)
     }
 
     function replay(){
@@ -20,11 +25,16 @@ function Win(props){
         props.setWin(false);
     }
 
+     const myInterval=setInterval(() => {
+        alert(props.obj.name+" is the winner!!")
+        clearInterval(myInterval);
+     }, 800);
+
     return(
         <>
-        {alert(props.obj.name+" is the winner!!")}
         <button onClick={()=>quit()}>quit</button>
         <button onClick={()=>replay()}>replay</button>
+    
         </>
     )
 }
