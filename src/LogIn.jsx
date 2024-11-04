@@ -34,7 +34,7 @@ function LogIn(props) {
             <input type='password' placeholder="סיסמא" onChange={(e) => setCurrentPassword(e.target.value)}></input>
             <input onClick={() => submit({ name: currentName, password: currentPassword })} type="submit" value="Submit"></input>
             {localStorage.setItem("currentUser", JSON.stringify(currentName))}
-            <div id='container'>{Array.isArray(arrayPlayers) && arrayPlayers.map((user, i) => (<Board obj={user} i={i}setLength={setLength} key={user.name} setUserarr={props.setUserarr} userarr={props.userarr} length={length}  index={index} setIndex={setIndex} />))}  </div>
+            <div id='container'>{Array.isArray(arrayPlayers) && arrayPlayers.map((user, i) => (<Board obj={user} i={i}setLength={setLength} key={user.name} setUserarr={setArrayPLayers} userarr={arrayPlayers} length={length}  index={index} setIndex={setIndex} />))}  </div>
         </div>
     )
 }
